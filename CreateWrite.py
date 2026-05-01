@@ -1,4 +1,4 @@
-#Create
+# Task A - Create
 def create_file():
     try:
         file = open("Diary.txt", "x")
@@ -7,7 +7,7 @@ def create_file():
     except FileExistsError:
         print("File already Exist")
 
-#Append
+# Task B - Append
 def append_entry():
     try:
         date = input("Enter date: ")
@@ -22,7 +22,7 @@ def append_entry():
     except Exception as e:
         print("Error:", e)
 
-#Read
+# Task C - Read
 def read_entries():
     try:
         file = open("diary.txt", "r")
@@ -40,7 +40,7 @@ def read_entries():
     except Exception as e:
         print("Error:", e)
 
-#Update
+# Task D - Update
 def update_entry():
     try:
         date_to_update = input("Enter date to update: ")
