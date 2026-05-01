@@ -1,4 +1,5 @@
-def x_mode():
+#Create
+def create_file():
     try:
         file = open("Diary.txt", "x")
         print("File Created Successfully!!!")
@@ -6,6 +7,7 @@ def x_mode():
     except FileExistsError:
         print("File already Exist")
 
+#Append
 def append_entry():
     try:
         date = input("Enter date: ")
@@ -20,6 +22,7 @@ def append_entry():
     except Exception as e:
         print("Error:", e)
 
+#Read
 def read_entries():
     try:
         file = open("diary.txt", "r")
@@ -37,15 +40,13 @@ def read_entries():
     except Exception as e:
         print("Error:", e)
 
-
+#Update
 def update_entry():
     try:
         date_to_update = input("Enter date to update: ")
-
         file = open("diary.txt", "r")
         lines = file.readlines()
         file.close()
-
         file = open("diary.txt", "w")
 
         found = False
@@ -69,11 +70,10 @@ def update_entry():
     except Exception as e:
         print("Error:", e)
 
-
+#Search
 def search_entry():
     try:
         keyword = input("Enter keyword/date to search: ")
-
         file = open("diary.txt", "r")
         found = False
 
@@ -84,7 +84,6 @@ def search_entry():
 
         if not found:
             print("No entry found.")
-
         file.close()
 
     except FileNotFoundError:
@@ -92,7 +91,7 @@ def search_entry():
     except Exception as e:
         print("Error:", e)
 
-
+#Delete
 def delete_entry():
     try:
         date_to_delete = input("Enter date to delete: ")
@@ -123,34 +122,32 @@ def delete_entry():
         print("Error:", e)
 
 
-# ---------- MAIN MENU ----------
+#Main Menu
 create_file()
+
 
 while True:
     print("\n==== PERSONAL DIARY MENU ====")
-    print("1. Write (Overwrite)")
-    print("2. Append Entry")
-    print("3. Read Entries")
-    print("4. Update Entry")
-    print("5. Search Entry")
-    print("6. Delete Entry")
-    print("7. Exit")
+    print("1. Append Entry")
+    print("2. Read Entries")
+    print("3. Update Entry")
+    print("4. Search Entry")
+    print("5. Delete Entry")
+    print("6. Exit")
 
     choice = input("Enter choice: ")
 
     if choice == "1":
-        write_entry()
-    elif choice == "2":
         append_entry()
-    elif choice == "3":
+    elif choice == "2":
         read_entries()
-    elif choice == "4":
+    elif choice == "3":
         update_entry()
-    elif choice == "5":
+    elif choice == "4":
         search_entry()
-    elif choice == "6":
+    elif choice == "5":
         delete_entry()
-    elif choice == "7":
+    elif choice == "6":
         print("Exiting program...")
         break
     else:
